@@ -5,6 +5,8 @@ import { Context } from '../context'
 
 const AddNewTodo = (props) => {
 
+   
+
     const [todos, setTodos, selectedTodo, setSelectedTodo, editModalOpen, setEditModalOpen] = React.useContext(Context);
 
     return (

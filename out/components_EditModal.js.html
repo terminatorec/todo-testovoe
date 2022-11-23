@@ -1,4 +1,32 @@
-import React from 'react'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/EditModal.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/EditModal.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
 import { Context } from '../context';
 // import { enGB } from 'date-fns/locale'
 // import { DatePickerCalendar } from 'react-nice-dates'
@@ -90,7 +118,7 @@ const EditModal = () => {
  */
 
     const addNew = async () => {
-        if (title && desc && date && auth) {
+        if (title &amp;&amp; desc &amp;&amp; date &amp;&amp; auth) {
             setBoolTask(true)
 
             let id = random(0, 100000000000)
@@ -123,7 +151,7 @@ const EditModal = () => {
  */
     const save = () => {
 
-        if (title && desc && date) {
+        if (title &amp;&amp; desc &amp;&amp; date) {
             setBoolTask(true)
             let newTodos = JSON.parse(JSON.stringify(todos))
             let newTodo = {
@@ -183,118 +211,140 @@ const EditModal = () => {
     }, [editModalOpen])
 
     return (
-        <>
+        &lt;>
             {
-                editModalOpen.state && <div
+                editModalOpen.state &amp;&amp; &lt;div
                     onClick={() => setEditModalOpen(false)}
                     className="modalEdit__wrap">
 
-                    <div className="modalEdit">
-                        {boolTask ? <div className="loader__ellipsis_wrap">
-                            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                        </div> :
-                            <div>
+                    &lt;div className="modalEdit">
+                        {boolTask ? &lt;div className="loader__ellipsis_wrap">
+                            &lt;div className="lds-ellipsis">&lt;div>&lt;/div>&lt;div>&lt;/div>&lt;div>&lt;/div>&lt;div>&lt;/div>&lt;/div>
+                        &lt;/div> :
+                            &lt;div>
 
-                                <div
+                                &lt;div
                                     onClick={(e) => e.stopPropagation()}
                                     className="modalEdit__grid"
                                 >
-                                    <div className="modalEdit__Inputs">
-                                        <input
+                                    &lt;div className="modalEdit__Inputs">
+                                        &lt;input
                                             onChange={(e) => setTitle(e.target.value)}
                                             value={title}
                                             type="text" placeholder='Title...' />
-                                        <input
+                                        &lt;input
                                             onChange={(e) => setDesc(e.target.value)}
                                             value={desc}
                                             type="text" placeholder='Description...' />
-                                    </div>
-                                    <div className="modalEdit__Timer">
-                                        <div className="AddNewTodo__Modal">
-                                            {/* <DatePickerCalendar date={date} onDateChange={setDate} locale={enGB} /> */}
-                                            <DateTimePicker value={date} onChange={setDate} />
-                                        </div>
-                                        {/* <button
+                                    &lt;/div>
+                                    &lt;div className="modalEdit__Timer">
+                                        &lt;div className="AddNewTodo__Modal">
+                                            {/* &lt;DatePickerCalendar date={date} onDateChange={setDate} locale={enGB} /> */}
+                                            &lt;DateTimePicker value={date} onChange={setDate} />
+                                        &lt;/div>
+                                        {/* &lt;button
                                             className="modalEdit__Button_date"
-                                            onClick={() => setOpenModal(true)}>{date ? dateFormat(date) : 'date'}</button>
+                                            onClick={() => setOpenModal(true)}>{date ? dateFormat(date) : 'date'}&lt;/button>
                                         {
-                                            openModal &&
+                                            openModal &amp;&amp;
                                         } */}
 
-                                    </div>
+                                    &lt;/div>
 
-                                    {editModalOpen.type == 'add' ? <button
+                                    {editModalOpen.type == 'add' ? &lt;button
                                         onClick={() => addNew()}
                                         className="modalEdit__Button"
                                     >
                                         Add new
-                                    </button>
+                                    &lt;/button>
                                         :
-                                        <button
+                                        &lt;button
                                             onClick={() => save()}
                                             className="modalEdit__Button"
                                         >
                                             Save
-                                        </button>
+                                        &lt;/button>
                                     }
 
 
 
-                                </div>
+                                &lt;/div>
 
-                                <div
+                                &lt;div
                                     onClick={(e) => e.stopPropagation()}
                                     className="modalEdit_w">
-                                    <div
+                                    &lt;div
                                         onClick={(e) => e.stopPropagation()}
                                         className="file__wrap"
                                     >
-                                        <input type="file"
+                                        &lt;input type="file"
                                             onChange={(e) => { setImage(e.target.files[0]) }} />
-                                        <button onClick={upload}>Upload</button>
+                                        &lt;button onClick={upload}>Upload&lt;/button>
 
-                                        <div className="progressBar">
-                                            <p>{uploadState}</p>
-                                        </div>
+                                        &lt;div className="progressBar">
+                                            &lt;p>{uploadState}&lt;/p>
+                                        &lt;/div>
 
-                                    </div>
-                                    <div>
-                                        {files ? files.map((fileName, id) => <div key={id} className="image__wrap">
-                                            <div className="image__delete">
-                                                <AiOutlineClose
+                                    &lt;/div>
+                                    &lt;div>
+                                        {files ? files.map((fileName, id) => &lt;div key={id} className="image__wrap">
+                                            &lt;div className="image__delete">
+                                                &lt;AiOutlineClose
                                                     onClick={() => deleteDocument(fileName)}
                                                     className="imageIMG__delete" size={30} />
-                                            </div>
+                                            &lt;/div>
                                             {checkExtension(fileName) ?
-                                                <>
-                                                    <img src={fileName} alt="" />
-                                                    <a
+                                                &lt;>
+                                                    &lt;img src={fileName} alt="" />
+                                                    &lt;a
                                                         className="imageIMG__delete_a"
                                                         target={'_blank'}
                                                         href={fileName}
-                                                    >Link</a>
-                                                </>
+                                                    >Link&lt;/a>
+                                                &lt;/>
                                                 :
-                                                <a
+                                                &lt;a
                                                     className="imageIMG__delete_a"
                                                     target={'_blank'}
                                                     href={fileName}
-                                                >Link</a>}
+                                                >Link&lt;/a>}
 
-                                        </div>) : ''}
-                                    </div>
+                                        &lt;/div>) : ''}
+                                    &lt;/div>
 
-                                </div>
-                            </div>}
+                                &lt;/div>
+                            &lt;/div>}
 
 
 
-                    </div>
-                </div>
+                    &lt;/div>
+                &lt;/div>
             }
-        </>
+        &lt;/>
 
     )
 }
 
-export default EditModal
+export default EditModal</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EditModal-addNew.html">addNew</a></li><li><a href="EditModal-deleteDocument.html">deleteDocument</a></li><li><a href="EditModal-reboot.html">reboot</a></li><li><a href="EditModal-save.html">save</a></li><li><a href="EditModal-upload.html">upload</a></li><li><a href="checkExtension.html">checkExtension</a></li><li><a href="dateFormat.html">dateFormat</a></li><li><a href="getMilliSeconds.html">getMilliSeconds</a></li><li><a href="random.html">random</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 23 2022 21:36:03 GMT+0900 (Корея, стандартное время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -32,7 +32,6 @@ const Todo = (props) => {
                 setTodos(newArray)
             })
             .catch((error) => {
-                // The document probably doesn't exist.
                 console.error("Error updating document: ", error);
             });
     }
@@ -55,9 +54,7 @@ const Todo = (props) => {
 
 
     return (
-        // <div className={new Date().getTime() >= getMilliSeconds(props.info.date) ? 'Todo__wrap__failed' : props.info.completed == true ? 'Todo__wrap__completed' : 'Todo__wrap'}>
         <div className={props.info.completed == true? 'Todo__wrap__completed'  : new Date().getTime() >= (getMilliSeconds(props.info.date))  ? 'Todo__wrap__failed' : 'Todo__wrap'}>
-        {/* <div className={? 'Todo__wrap__failed' : props.info.completed == true ? 'Todo__wrap__completed' : 'Todo__wrap'}> */}
 
             <div className='Todo'>
                 <div onClick={() => changeState()} style={props.info.completed == true ? { textDecoration: 'line-through' } : {}}>
