@@ -1,38 +1,349 @@
 .App {
-  text-align: center;
+	text-align: center;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
+}
+.Todo__wrap{
+    padding: 15px;
+	text-align: start;
+	border-bottom: 1px solid black;
+    background-color: rgba(220, 220, 220, 0.418);
+}
+.Todo__wrap__failed{
+    padding: 15px;
+	text-align: start;
+	border-bottom: 1px solid black;
+    background-color: rgba(189, 0, 0, 0.418);
+}
+.Todo__wrap__completed{
+    padding: 15px;
+	text-align: start;
+	border-bottom: 1px solid black;
+    background-color: rgba(66, 231, 0, 0.418);
+}
+.Todo {
+	display: flex;
+	justify-content: space-between;
+}
+.Todos {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.Todo_title {
+	margin: 0;
+	font-size: 30px;
+	font-weight: 800;
+	cursor: pointer;
+}
+.Todo_desc {
+	margin: 0;
+	font-size: 15px;
+	cursor: pointer;
+	/* font-weight: 800; */
+}
+.AddNewTodo {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+}
+.AddNewTodo__Wrap {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.AddNewTodo__Inputs {
+	width: 100%;
+}
+.AddNewTodo__Inputs input {
+	width: 100%;
+	outline: none;
+	border: none;
+	padding: 10px;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+.AddNewTodo__Timer {
+	/* width: 500px; */
+}
+.AddNewTodo__Modal {
+	/* position: absolute;
+	top: 80px;
+    right: 15px; */
+	/* right: 10%; */
+	/* width: 400px; */
+    font-size: 20px;
+	background-color: rgb(243, 243, 243);
+}
+
+.AddNewTodo__Button {
+	padding: 10px;
+	font-size: 20px;
+    border:none;
+	width: 150px;
+	height: 150px;
+	margin-top: 10px;
+	background-color: rgb(59, 59, 160);
+    color: white;
+	cursor: pointer;
+}
+.AddNewTodo__Button:hover {
+	background-color: rgba(59, 59, 160, 0.7);
+}
+
+.icon {
+	cursor: pointer;
+}
+.icon:hover {
+	opacity: 0.7;
+}
+
+.modalEdit__wrap {
+	background-color: rgba(43, 43, 43, 0.603);
+	padding: 15px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-height: 100vh;
+	max-height: 100%;
+}
+
+.modalEdit {
+	margin-top: 15px;
+	background-color: white;
+	padding: 15px;
+	max-width: 1000px;
+	margin: 0 auto;
+    height: 80vh;
+
+}
+.modalEdit__grid {
+	
+	
+	
+	display: grid;
+	grid-template-columns: 1fr 250px 100px;
+}
+.modalEdit_w {
+	background-color: white;
+	padding: 15px;
+	max-width: 1000px;
+	margin: 0 auto;
+	overflow-y: scroll;
+	height: 70vh;
+}
+.modalEdit__Timer {
+	/* width: 100px; */
+    width: fit-content;
+    /* position: relative; */
+}
+.modalEdit__Button {
+	width: 100px;
+	padding: 15px;
+	height: auto;
+	/* height: fit-content; */
+}
+.modalEdit__Button_date {
+	width: 140px;
+	padding: 15px;
+	/* height: fit-content; */
+	height: 100%;
+	margin-right: 10px;
+	font-weight: 900;
+	font-size: 16px;
+}
+
+.modalEdit__Inputs input {
+	width: 100%;
+	outline: none;
+	border: none;
+	padding: 10px;
+	/* border-bottom: 1px solid black;
+	border-right: 1px solid black; */
+}
+.image__wrap {
+	width: 300px;
+	padding: 10px;
+	height: auto;
+	position: relative;
+	background-color: #b3eeff;
+	margin-top: 5px;
+}
+.image__wrap img {
+	width: 100%;
+}
+.image__delete {
+	position: absolute;
+	top: 6px;
+	right: 4px;
+}
+.imageIMG__delete {
+	cursor: pointer;
+	color: red;
+}
+.imageIMG__delete_a {
+	padding: 10px;
+}
+.loginpage{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.loader_wrap {
+	width: 80px;
+    margin: 50px auto 0;
+}
+.lds-ring {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+.lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid rgb(196, 83, 83);
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: rgb(158, 46, 46) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+.progressBar__wrap{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.progressBar{
+    /* width: 300px; */
+    
+    margin-top: 10px;
+    padding: 4px;
+    border-bottom:1px solid black;
+    
+    width: 300px;
+    /* background-color:rgb(62, 218, 0); */
+}
+
+
+
+
+
+
+.loader__ellipsis_wrap{
+    width: 100%;
+}
+.lds-ellipsis {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
