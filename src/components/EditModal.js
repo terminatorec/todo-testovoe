@@ -38,10 +38,10 @@ const EditModal = () => {
 
 
 
- /**
- * Функция для сохранения изображения на сервере
- * @constructor
- */
+    /**
+    * Функция для сохранения изображения на сервере
+    * @constructor
+    */
     const upload = () => {
         if (image == null)
             return;
@@ -72,10 +72,10 @@ const EditModal = () => {
 
 
 
-       /**
- * Функция для сброса всех React.useState хуков, используется в других нескольких функциях
- * @constructor
- */
+    /**
+* Функция для сброса всех React.useState хуков, используется в других нескольких функциях
+* @constructor
+*/
     const reboot = () => {
         setTitle('')
         setDesc('')
@@ -116,11 +116,11 @@ const EditModal = () => {
         }
     }
 
-     /**
- * Функция для сохранения обьекта задачи после изменения. Сохраняется: название, описание, дата выполнения, список файлов для этой задачи. 
- * Перед сохранением производится проверка на заполнение этих данных и на авторизацию пользователя.
- * @constructor
- */
+    /**
+* Функция для сохранения обьекта задачи после изменения. Сохраняется: название, описание, дата выполнения, список файлов для этой задачи. 
+* Перед сохранением производится проверка на заполнение этих данных и на авторизацию пользователя.
+* @constructor
+*/
     const save = () => {
 
         if (title && desc && date) {
@@ -211,32 +211,29 @@ const EditModal = () => {
                                     </div>
                                     <div className="modalEdit__Timer">
                                         <div className="AddNewTodo__Modal">
-                                            {/* <DatePickerCalendar date={date} onDateChange={setDate} locale={enGB} /> */}
                                             <DateTimePicker value={date} onChange={setDate} />
                                         </div>
-                                        {/* <button
-                                            className="modalEdit__Button_date"
-                                            onClick={() => setOpenModal(true)}>{date ? dateFormat(date) : 'date'}</button>
-                                        {
-                                            openModal &&
-                                        } */}
+                                        <div className="modalEdit__Button__wrap">
+
+                                            {editModalOpen.type == 'add' ? <button
+                                                onClick={() => addNew()}
+                                                className="modalEdit__Button"
+                                            >
+                                                Add new
+                                            </button>
+                                                :
+                                                <button
+                                                    onClick={() => save()}
+                                                    className="modalEdit__Button"
+                                                >
+                                                    Save
+                                                </button>
+                                            }
+                                        </div>
+
 
                                     </div>
 
-                                    {editModalOpen.type == 'add' ? <button
-                                        onClick={() => addNew()}
-                                        className="modalEdit__Button"
-                                    >
-                                        Add new
-                                    </button>
-                                        :
-                                        <button
-                                            onClick={() => save()}
-                                            className="modalEdit__Button"
-                                        >
-                                            Save
-                                        </button>
-                                    }
 
 
 
@@ -251,7 +248,7 @@ const EditModal = () => {
                                     >
                                         <input type="file"
                                             onChange={(e) => { setImage(e.target.files[0]) }} />
-                                        <button onClick={upload}>Upload</button>
+                                        <button className="modalEdit__Button" onClick={upload}>Upload</button>
 
                                         <div className="progressBar">
                                             <p>{uploadState}</p>

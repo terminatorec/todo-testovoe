@@ -35,9 +35,19 @@
 }
 .Todo__wrap{
     padding: 15px;
+    margin-bottom: 15px;
 	text-align: start;
-	border-bottom: 1px solid black;
-    background-color: rgba(220, 220, 220, 0.418);
+    background-color: #F1F1F1;
+    border-radius: 10px;
+}
+.Todo__state_button{
+    margin-top: 10px;
+    cursor: pointer;
+}
+.Todo__state_button__success{
+    margin-top: 10px;
+    cursor: pointer;
+    color:rgb(123, 192, 20);
 }
 .Todo__wrap__failed{
     padding: 15px;
@@ -51,31 +61,65 @@
 	border-bottom: 1px solid black;
     background-color: rgba(66, 231, 0, 0.418);
 }
+.Todo_time{
+    text-align: center;
+    background-color: white;
+    padding: 2px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.Todo_time__lose{
+    text-align: center;
+    background-color: rgb(255, 140, 140);
+    font-size: 14px;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
 .Todo {
-	display: flex;
-	justify-content: space-between;
+	/* display: flex;
+	justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 50px 1fr 150px;
 }
 .Todos {
 	max-width: 1000px;
-	margin: 0 auto;
+	margin: 15px auto 0;
+}
+.Todo__edit_buttons{
+    justify-content: end;
+    display: flex;
+    margin-top: 4px;
 }
 
 .Todo_title {
 	margin: 0;
-	font-size: 30px;
-	font-weight: 800;
-	cursor: pointer;
+	font-size: 20px;
+	font-weight: 700;
+
 }
 .Todo_desc {
 	margin: 0;
 	font-size: 15px;
-	cursor: pointer;
+
 	/* font-weight: 800; */
 }
 .AddNewTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 50%;
 	position: fixed;
+    color: white;
+    background-color: rgb(70, 131, 249);
+    cursor: pointer;
 	bottom: 15px;
 	right: 15px;
+}
+.AddNewTodo:hover{
+    background-color: rgba(70, 131, 249,0.8);
 }
 .AddNewTodo__Wrap {
 	width: 100%;
@@ -101,7 +145,9 @@
 	top: 80px;
     right: 15px; */
 	/* right: 10%; */
-	/* width: 400px; */
+	width: 300px;
+    display: flex;
+    justify-content: end;
     font-size: 20px;
 	background-color: rgb(243, 243, 243);
 }
@@ -140,7 +186,9 @@
 
 .modalEdit {
 	margin-top: 15px;
-	background-color: white;
+	/* background-color: white; */
+    background-color: #F1F1F1;
+    border-radius:10px;
 	padding: 15px;
 	max-width: 1000px;
 	margin: 0 auto;
@@ -148,14 +196,12 @@
 
 }
 .modalEdit__grid {
-	
-	
-	
 	display: grid;
-	grid-template-columns: 1fr 250px 100px;
+	grid-template-columns: 1fr 300px;
 }
 .modalEdit_w {
-	background-color: white;
+	/* background-color: white; */
+    background-color: #F1F1F1;
 	padding: 15px;
 	max-width: 1000px;
 	margin: 0 auto;
@@ -163,15 +209,32 @@
 	height: 70vh;
 }
 .modalEdit__Timer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    /* border: 1px solid black; */
 	/* width: 100px; */
-    width: fit-content;
+    /* width: fit-content; */
     /* position: relative; */
 }
+.modalEdit__Button__wrap{
+    display:flex;
+    justify-content: end;
+}
 .modalEdit__Button {
-	width: 100px;
-	padding: 15px;
-	height: auto;
+	/* width: 100px; */
+	padding: 10px 20px;
+    background-color: rgb(70, 131, 249);
+    border-radius: 10px;
+    color: white;
+    border: none;
+    margin-top: 4px;
+    cursor: pointer;
+	/* height: auto; */
 	/* height: fit-content; */
+}
+.modalEdit__Button:hover{
+    background-color: rgba(70, 131, 249,0.7);
 }
 .modalEdit__Button_date {
 	width: 140px;
@@ -185,6 +248,7 @@
 
 .modalEdit__Inputs input {
 	width: 100%;
+    margin-bottom: 4px;
 	outline: none;
 	border: none;
 	padding: 10px;
@@ -196,7 +260,9 @@
 	padding: 10px;
 	height: auto;
 	position: relative;
-	background-color: #b3eeff;
+	background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 	margin-top: 5px;
 }
 .image__wrap img {

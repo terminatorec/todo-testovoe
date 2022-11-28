@@ -14,8 +14,9 @@ export const dateFormat = (og) => {
         + '/' +
         date.getFullYear()
         + ' '  +
-        date.getHours()
+        (date.getHours() > 9 ? date.getHours() : ('0' + date.getHours()))
         + ':' +
-        date.getMinutes()
+        (date.getMinutes() > 9 ? date.getMinutes() : ('0' + date.getMinutes()))
+        // date.getMinutes()
     return format
 } 

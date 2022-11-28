@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import { Helmet } from "react-helmet";
 import 'firebase/compat/auth';
 
 const app = firebase.initializeApp(
@@ -32,6 +33,16 @@ root.render(
         firestore,
         auth
     }}>
+        <Helmet>
+            <title>Test todo</title>
+            <meta name="description" content="Тестовое задание на вакансию javascript frontend" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <link rel="manifest" href="/site.webmanifest" />
+            <meta name="msapplication-TileColor" content="#da532c" />
+            <meta name="theme-color" content="#ffffff" />
+        </Helmet>
         <App />
 
     </FirebaseContext.Provider>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Context } from ".././context";
 import { dateFormat } from '../utils/dateFormat';
-import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { AiFillDelete, AiFillEdit, AiOutlinePlus } from "react-icons/ai";
+import { BsCheckCircle, BsCircle } from 'react-icons/bs';
 import { FirebaseContext } from '..';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -11,6 +12,7 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import { checkExtension } from '../utils/checkExtension';
 import { getMilliSeconds } from '../utils/getMilliSeconds';
+
 
 
 const Todo = (props) => {
@@ -54,10 +56,40 @@ const Todo = (props) => {
 
 
     return (
-        <div className={props.info.completed == true? 'Todo__wrap__completed'  : new Date().getTime() >= (getMilliSeconds(props.info.date))  ? 'Todo__wrap__failed' : 'Todo__wrap'}>
+        <div
+            className="Todo__wrap"
+        // className={props.info.completed == true? 'Todo__wrap__completed'  : new Date().getTime() >= (getMilliSeconds(props.info.date))  ? 'Todo__wrap__failed' : 'Todo__wrap'}
+        >
+            {/* BsCircle */}
+            {/* BsCheckCircle */}
 
             <div className='Todo'>
-                <div onClick={() => changeState()} style={props.info.completed == true ? { textDecoration: 'line-through' } : {}}>
+                <div
+                    onClick={() => changeState()}
+                    className={
+                        props.info.completed == true ?
+                            'Todo__state_button__success'
+                            :
+                            'Todo__state_button'
+
+                    }
+                // className="Todo__state_button"
+                >
+                    {
+                        props.info.completed == true ?
+                            <BsCheckCircle
+                                size={30}
+                            /> :
+                            <BsCircle
+                                size={30}
+                            />
+                    }
+
+                </div>
+                <div
+                // onClick={() => changeState()}
+                // style={props.info.completed == true ? { textDecoration: 'line-through' } : {}}
+                >
                     <p className="Todo_title">
                         {props.info.title}
                     </p>
@@ -66,14 +98,20 @@ const Todo = (props) => {
                     </p>
                 </div>
                 <div>
-                    <AiFillDelete onClick={() => deleteTodo()} size={30} className="icon" />
-                    <AiFillEdit onClick={() => editTodo(props.info)} size={30} className="icon" />
-                    <p>
+                    <p
+                        // className="Todo_time"
+                        className={((props.info.completed == false) && (new Date().getTime() >= (getMilliSeconds(props.info.date)))) ? "Todo_time__lose" : "Todo_time"}
+                    >
                         {props.info.date && dateFormat(props.info.date)}
                     </p>
+                    <div className="Todo__edit_buttons">
+                        <AiFillDelete onClick={() => deleteTodo()} size={20} className="icon" />
+                        <AiFillEdit onClick={() => editTodo(props.info)} size={20} className="icon" />
+
+                    </div>
                 </div>
             </div>
-            {props.info.docs ? props.info.docs.map((fileName,id) => <div key={id} className="image__wrap">
+            {props.info.docs ? props.info.docs.map((fileName, id) => <div key={id} className="image__wrap">
                 {checkExtension(fileName) ?
                     <>
                         <img src={fileName} alt="" />
